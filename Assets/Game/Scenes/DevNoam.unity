@@ -1481,23 +1481,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3681067280881786824, guid: 6e887af1bf9f1454b93813ff6241353e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3681067280881786824, guid: 6e887af1bf9f1454b93813ff6241353e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 8257144871342815248}
+      objectReference: {fileID: 1601275450}
     - target: {fileID: 3681067280881786824, guid: 6e887af1bf9f1454b93813ff6241353e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3681067280881786824, guid: 6e887af1bf9f1454b93813ff6241353e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnPointerClick
+      value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 3681067280881786824, guid: 6e887af1bf9f1454b93813ff6241353e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PointOfInterest, Assembly-CSharp
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3681067280881786824, guid: 6e887af1bf9f1454b93813ff6241353e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3681067280881786824, guid: 6e887af1bf9f1454b93813ff6241353e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -1521,17 +1525,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2248873496255447719, guid: 6e887af1bf9f1454b93813ff6241353e, type: 3}
   m_PrefabInstance: {fileID: 8257144871342815246}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8257144871342815248 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7896730640433566498, guid: 6e887af1bf9f1454b93813ff6241353e, type: 3}
-  m_PrefabInstance: {fileID: 8257144871342815246}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76deb81eacddbc14faf0420295e9454d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PointOfInterest
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
