@@ -29,19 +29,29 @@ public class Snails : ScriptableObject
     }
 
     [SerializeField] int humidity = 5; //if rain event -> speed gets +1
+    public int Humidity {get => humidity;}
     [SerializeField] int warmness = 5; //if snow event -> the higher it is, the lesser the snail freezes
+    public int Warmness{get => warmness;}
     [SerializeField] int weight = 5; //if wind event -> the higher it is, the lesser the snail gets pushed back
+    public int Weight { get => weight;}
 
     //to know if the snail gets special events during the race
-    [SerializeField] bool hasRain = false;
-    [SerializeField] bool hasSun = false;
-    [SerializeField] bool hasSnow = false;
-    [SerializeField] bool hasWind = false;
-    [SerializeField] bool hasSalt = false;
-    [SerializeField] bool hasBackJump = false;
-    [SerializeField] bool hasGun = false;
-    [SerializeField] bool hasMutagene = false;
+    public bool hasRain = false;
+    public bool hasSun = false;
+    public bool hasSnow = false;
+    public bool hasWind = false;
+    public bool hasSalt = false;
+    public bool hasBackJump = false;
+    public bool hasGun = false;
+    public bool hasMutagene = false;
 
+    private int snailOods;
+
+    public int SnailOods
+    {
+        get => snailOods;
+    }
+    
     public void Init()
     {
         speed = Random.Range(1, 10);
@@ -77,23 +87,6 @@ public class Snails : ScriptableObject
         }
 
         points = 30;
-    }
-
-    public void Mutagene() //reroll all stats except speed
-    {
-        int rerollPts = points - speed;
-        humidity = Random.Range(0, 10);
-        rerollPts -= humidity;
-        warmness = Random.Range(0, 10);
-        rerollPts -= warmness;
-        if (rerollPts <= 10)
-        {
-            weight = rerollPts;
-        }
-        else
-        {
-            weight = Random.Range(0, 10);
-        }
     }
 
     public string[] GetStats()

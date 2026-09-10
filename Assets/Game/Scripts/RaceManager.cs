@@ -8,6 +8,7 @@ public class RaceManager : MonoBehaviour
     [SerializeField] private GameObject snailPrefab;
     [SerializeField] private List<Transform> snailSlots;
 
+    private List<SnailRace> snailRaces;
     private void Start()
     {
         for (int i = 0; i < snailSlots.Count; i++)
@@ -15,18 +16,46 @@ public class RaceManager : MonoBehaviour
             GameObject snailClone = Instantiate(snailPrefab, snailSlots[i].position, snailSlots[i].rotation);
             snails[i].Init();
             snailClone.name = snails[i].Name;
-            SpriteRenderer spriteRenderer = snailClone.gameObject.GetComponentInChildren<SpriteRenderer>();
+            
+            SnailRace snailComp = snailClone.GetComponentInChildren<SnailRace>();
+            snailRaces.Add(snailComp);
             if (snails[i].Sprite != null)
-                spriteRenderer.sprite = snails[i].Sprite;
+                snailComp.SnailSprite = snails[i].Sprite;
             else
             {
                 Debug.LogWarning(snails[i].Name + " has no sprite");
             }
+            
+            #region Snail Stats
+            snailComp.SnailName = snails[i].Name;
+            snailComp.Speed = snails[i].Speed;
+            snailComp.Humidity = snails[i].Humidity;
+            snailComp.Warmness = snails[i].Warmness;
+            snailComp.Weight = snails[i].Weight;
+            #endregion Snail Stats
+            
+            #region Snail Effect
 
-            SnailRace snailComp = snailClone.GetComponentInChildren<SnailRace>();
-            snailComp.Init(snails[i].Speed, snails[i].Name);
-            // snailComp.Speed = snails[i].Speed;
-            // Debug.Log($"{snails[i].Name} speed: {snailComp.Speed}");
+            snailComp.HasRain = snails[i].hasRain;
+            snailComp.HasSun =  snails[i].hasSun;
+            snailComp.HasSnow = snails[i].hasSnow;
+            snailComp.HasWind = snails[i].hasWind;
+            snailComp.HasSalt =  snails[i].hasSalt;
+            snailComp.HasMutagene = snails[i].hasMutagene;
+
+            #endregion Snail Effect
+        }
+    }
+    
+    private void Update()
+    {
+        for (int i = 0; i < snailRaces.Count; i++)
+        {
+            if (snailRaces[i].HasFinished)
+            {
+                Debug.Log($"{snailRaces[i]} has won the race");
+                snailRaces[i].ResetStat();
+            }
         }
     }
 }
