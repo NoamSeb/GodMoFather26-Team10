@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.UI;
 using UnityEngine.InputSystem.LowLevel;
+using UnityEngine.InputSystem.Users;
 
 public class PlayerCursorSetup : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class PlayerCursorSetup : MonoBehaviour
     private RectTransform parentCanvasRect;
     private Camera playerCamera;
     private InputAction moveAction;
+    //private InputAction clickAction;
 
     private void Awake()
     {
@@ -25,10 +27,12 @@ public class PlayerCursorSetup : MonoBehaviour
         if (playerInput != null && playerInput.actions != null)
         {
             moveAction = playerInput.actions.FindAction("Move") ?? playerInput.actions.FindAction("Navigate");
+            //clickAction = playerInput.actions.FindAction("Interact") ?? playerInput.actions.FindAction("Click");
             
             if (moveAction != null)
             {
                 moveAction.Enable();
+                //clickAction.Enable();
             }
         }
         
@@ -55,6 +59,14 @@ public class PlayerCursorSetup : MonoBehaviour
             }
 
             rectTransform.anchoredPosition = Vector2.zero;
+        }
+    }
+    
+    private void Start()
+    {
+        if (virtualMouseInput != null && virtualMouseInput.virtualMouse != null && playerInput != null)
+        {
+            InputUser.PerformPairingWithDevice(virtualMouseInput.virtualMouse, playerInput.user);
         }
     }
 
