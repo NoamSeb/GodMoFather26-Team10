@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b853b0c5ba0dfe74c8b94b654bac98de, type: 3}
+  m_Name: Snailson Mandela
+  m_EditorClassIdentifier: Assembly-CSharp::Snails
+  name: Snailson Mandela
+  sprite: {fileID: -1729076983199040460, guid: 78a248abafc4568428f35f7ab0017e2a, type: 3}
+  speed: 14
+  humidity: 1
+  warmness: 1
+  weight: 7
+  hasRain: 0
+  hasSun: 0
+  hasSnow: 0
+  hasWind: 0
+  hasSalt: 0
+  hasBackJump: 0
+  hasGun: 0
+  hasMutagene: 0

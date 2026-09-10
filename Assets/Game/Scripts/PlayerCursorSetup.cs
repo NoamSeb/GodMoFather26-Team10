@@ -15,7 +15,7 @@ public class PlayerCursorSetup : MonoBehaviour
     private RectTransform parentCanvasRect;
     private Camera playerCamera;
     private InputAction moveAction;
-    //private InputAction clickAction;
+    private InputAction clickAction;
 
     private void Awake()
     {
@@ -26,14 +26,22 @@ public class PlayerCursorSetup : MonoBehaviour
         
         if (playerInput != null && playerInput.actions != null)
         {
-            moveAction = playerInput.actions.FindAction("Move") ?? playerInput.actions.FindAction("Navigate");
-            //clickAction = playerInput.actions.FindAction("Interact") ?? playerInput.actions.FindAction("Click");
+            moveAction = playerInput.actions.FindAction("Navigate");
+            clickAction = playerInput.actions.FindAction("Click");
+            if(clickAction != null)
+                Debug.LogWarning(clickAction.name);
+            else
+                Debug.Log("Click action is null");
             
             if (moveAction != null)
             {
                 moveAction.Enable();
-                //clickAction.Enable();
+                clickAction.Enable();
             }
+        }
+        else
+        {
+            Debug.Log("No PlayerInput found");
         }
         
         int index = playerInput.playerIndex;
@@ -91,6 +99,15 @@ public class PlayerCursorSetup : MonoBehaviour
             {
                 Vector2 screenPoint = RectTransformUtility.WorldToScreenPoint(playerCamera, rectTransform.position);
                 InputState.Change(virtualMouseInput.virtualMouse.position, screenPoint);
+            }
+            else
+            {
+                Debug.Log("Virtual Mouse not found");
+            }
+
+            if (clickAction != null && clickAction.triggered)
+            {
+                Debug.Log("Click");
             }
         }
     }

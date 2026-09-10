@@ -9,7 +9,25 @@ public class Snails : ScriptableObject
     //stats always between 0 and 10
     int points = 30;
 
+    [SerializeField] private string name;
+
+    public string Name
+    {
+        get => name;
+    }
+
+    [SerializeField] private Sprite sprite;
+    public Sprite Sprite => sprite;
+
+
     [SerializeField] int speed = 5; //determines its rate
+
+    public int Speed
+    {
+        get => speed;
+        set => speed = value;
+    }
+
     [SerializeField] int humidity = 5; //if rain event -> speed gets +1
     [SerializeField] int warmness = 5; //if snow event -> the higher it is, the lesser the snail freezes
     [SerializeField] int weight = 5; //if wind event -> the higher it is, the lesser the snail gets pushed back
@@ -26,19 +44,38 @@ public class Snails : ScriptableObject
 
     public void Init()
     {
-        speed = Random.Range(0, 10);
-        points -= speed * 2;    //points for speed are counted twice
-        humidity = Random.Range(0, 10);
+        speed = Random.Range(1, 10);
+        // Debug.Log(speed);
+        points -= speed*2;
+        humidity = Random.Range(1, 10);
         points -= humidity;
-        warmness = Random.Range(0, 10);
+        if (points <= 0)
+        {
+            warmness = 0;
+        }
+        else if (points <= 10)
+        {
+            warmness = points;
+        }
+        else
+        {
+            warmness = Random.Range(1, 10);
+        }
+
         points -= warmness;
-        if (points <= 10)
+        if (points <= 0)
+        {
+            weight = 0;
+        }
+        else if (points <= 10)
         {
             weight = points;
-        } else
-        {
-            weight = Random.Range(0, 10);
         }
+        else
+        {
+            weight = Random.Range(1, 10);
+        }
+
         points = 30;
     }
 
@@ -61,14 +98,15 @@ public class Snails : ScriptableObject
 
     public string[] GetStats()
     {
-        List<int> statsNb = new List<int>() {speed, humidity, warmness, weight};
+        List<int> statsNb = new List<int>() { speed, humidity, warmness, weight };
         string[] statsChara = new string[4];
         for (int i = 0; i < statsNb.Count; i++)
         {
             if (statsNb[i] <= 2)
             {
                 statsChara[i] = "--";
-            } else if (statsNb[i] <= 5)
+            }
+            else if (statsNb[i] <= 5)
             {
                 statsChara[i] = "-";
             }
@@ -81,6 +119,7 @@ public class Snails : ScriptableObject
                 statsChara[i] = "++";
             }
         }
+
         return statsChara;
     }
 }

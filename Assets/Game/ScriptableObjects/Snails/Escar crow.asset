@@ -10,9 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b853b0c5ba0dfe74c8b94b654bac98de, type: 3}
-  m_Name: 1
+  m_Name: Escar crow
   m_EditorClassIdentifier: Assembly-CSharp::Snails
-  speed: 5
-  trust: 5
-  victory: 5
-  defeat: 5
+  name: Escar Crow
+  sprite: {fileID: 6576739180971914860, guid: 0414f95281105fa4780ec8a608ecc611, type: 3}
+  speed: 14
+  humidity: 7
+  warmness: 9
+  weight: 0
+  hasRain: 0
+  hasSun: 0
+  hasSnow: 0
+  hasWind: 0
+  hasSalt: 0
+  hasBackJump: 0
+  hasGun: 0
+  hasMutagene: 0
