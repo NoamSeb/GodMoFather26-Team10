@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Snails
   name: Snaildenring
   sprite: {fileID: 4267929188488796427, guid: f970c0f481aba494791c19a402b02d02, type: 3}
-  speed: 10
+  speed: 5
   humidity: 5
-  warmness: 3
-  weight: 2
+  warmness: 7
+  weight: 8
   hasRain: 0
   hasSun: 0
   hasSnow: 0

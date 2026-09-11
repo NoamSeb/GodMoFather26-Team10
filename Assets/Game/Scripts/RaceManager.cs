@@ -22,8 +22,8 @@ public class RaceManager : MonoBehaviour
     [SerializeField] private Image snailImage;
 
     [SerializeField] private TextMeshProUGUI snailName;
-    
-    
+
+    private bool isRaceOver = false;
 
     private List<SnailRace> snailRaces = new List<SnailRace>();
     
@@ -75,21 +75,17 @@ public class RaceManager : MonoBehaviour
     {
         for (int i = 0; i < snailRaces.Count; i++)
         {
-            if (snailRaces[i].HasFinished)
+            if (snailRaces[i].HasFinished && !isRaceOver)
             {
-                Debug.Log($"{snailRaces[i]} has won the race");
+                isRaceOver = true;
                 StartCoroutine(SpawnRaces(snailRaces[i]));
                 snailRaces[i].ResetStat();
             }
         }
     }
-
+    
     IEnumerator SpawnRaces(SnailRace snailRace)
     {
-        for (int i = 0; i < snailRaces.Count; i++)
-        {
-            snailRaces[i].Speed = 0;
-        }
         snailImage.sprite = snailRace.SnailSprite;
         snailName.SetText(snailRace.SnailName);
         winCanva.SetActive(true);

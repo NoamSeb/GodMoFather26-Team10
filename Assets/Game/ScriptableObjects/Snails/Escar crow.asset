@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Snails
   name: Escar Crow
   sprite: {fileID: 6576739180971914860, guid: 0414f95281105fa4780ec8a608ecc611, type: 3}
-  speed: 14
-  humidity: 7
-  warmness: 9
-  weight: 0
+  speed: 3
+  humidity: 6
+  warmness: 5
+  weight: 8
   hasRain: 0
   hasSun: 0
   hasSnow: 0

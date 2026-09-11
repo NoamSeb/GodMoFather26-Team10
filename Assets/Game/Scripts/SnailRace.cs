@@ -81,7 +81,6 @@ public class SnailRace : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log($"{snailName} has {raceExpectedTime}");
         float mediumSpeed = 1 / raceExpectedTime;
         paceTimer -= Time.deltaTime;
         if (paceTimer <= 0f)
@@ -96,7 +95,7 @@ public class SnailRace : MonoBehaviour
         }
         if (hasWind)
         {
-            pace /= weight/1.5f;
+            pace /= (weight/1.5f)+0.1f;
         }
         progress = Mathf.Clamp01(progress + mediumSpeed * pace * Time.deltaTime);
         

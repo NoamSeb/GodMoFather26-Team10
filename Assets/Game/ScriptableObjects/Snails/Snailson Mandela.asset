@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Snails
   name: Snailson Mandela
   sprite: {fileID: -1729076983199040460, guid: 78a248abafc4568428f35f7ab0017e2a, type: 3}
-  speed: 14
-  humidity: 1
-  warmness: 1
-  weight: 7
+  speed: 3
+  humidity: 6
+  warmness: 3
+  weight: 3
   hasRain: 0
-  hasSun: 0
+  hasSun: 1
   hasSnow: 0
   hasWind: 0
   hasSalt: 0
