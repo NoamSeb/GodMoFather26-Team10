@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03ce1e9e14314a3c9afb0484fafdbf9b, type: 3}
+  m_Name: Wind
+  m_EditorClassIdentifier: Assembly-CSharp::WeatherItem
+  itemName: Tornado
+  price: 40
+  isMeteoEvent: 1
+  description: Vitesse de l'escargot ralenti en fonction de son poids
+  sprite: {fileID: 0}
+  weatherType: 3

@@ -33,6 +33,15 @@ public class PointOfInterest : MonoBehaviour, IPointerClickHandler
     {
         Debug.Log("Has been clicked");
         if (canvasToActivate != null)
+        {
             canvasToActivate.SetActive(true);
+            // canvasToActivate.TryGetComponent<ItemManager>(out ItemManager im);
+            // if(im !=null)
+            //     im.DisplayItems();
+            // else
+            // {
+            //     Debug.LogWarning("No ItemManager found");
+            // }
+        }
     }
 }

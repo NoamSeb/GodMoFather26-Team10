@@ -1,7 +1,9 @@
+using System;
 using UnityEngine;
 using NaughtyAttributes;
 using UnityEngine.UIElements;
 using System.Collections.Generic;
+using Random = UnityEngine.Random;
 
 [CreateAssetMenu(fileName = "Snails", menuName = "Scriptable Objects/Snails")]
 public class Snails : ScriptableObject
@@ -29,11 +31,25 @@ public class Snails : ScriptableObject
     }
 
     [SerializeField] int humidity = 5; //if rain event -> speed gets +1
-    public int Humidity {get => humidity;}
+
+    public int Humidity
+    {
+        get => humidity;
+    }
+
     [SerializeField] int warmness = 5; //if snow event -> the higher it is, the lesser the snail freezes
-    public int Warmness{get => warmness;}
+
+    public int Warmness
+    {
+        get => warmness;
+    }
+
     [SerializeField] int weight = 5; //if wind event -> the higher it is, the lesser the snail gets pushed back
-    public int Weight { get => weight;}
+
+    public int Weight
+    {
+        get => weight;
+    }
 
     //to know if the snail gets special events during the race
     public bool hasRain = false;
@@ -45,18 +61,19 @@ public class Snails : ScriptableObject
     public bool hasGun = false;
     public bool hasMutagene = false;
 
+
     private int snailOods;
 
     public int SnailOods
     {
         get => snailOods;
     }
-    
+
     public void Init()
     {
         speed = Random.Range(1, 10);
         // Debug.Log(speed);
-        points -= speed*2;
+        points -= speed * 2;
         humidity = Random.Range(1, 10);
         points -= humidity;
         if (points <= 0)
@@ -114,5 +131,43 @@ public class Snails : ScriptableObject
         }
 
         return statsChara;
+    }
+
+    private static readonly Dictionary<WeatherType, Action<Snails>> weatherSetters = new()
+    {
+        { WeatherType.Rain, s => s.hasRain = true },
+        { WeatherType.Sun, s => s.hasSun = true },
+        { WeatherType.Snow, s => s.hasSnow = true },
+        { WeatherType.Wind, s => s.hasWind = true },
+    };
+
+    private static readonly Dictionary<ItemType, Action<Snails>> itemSetters = new()
+    {
+        { ItemType.Salt, s => s.hasSalt = true },
+        { ItemType.Mutagene, s => s.hasMutagene = true }
+    };
+
+    public void SetWeather(WeatherType type)
+    {
+        if (weatherSetters.TryGetValue(type, out var setter))
+        {
+            setter(this);
+        }
+        else
+        {
+            Debug.LogWarning($"Aucun setter défini pour {type}");
+        }
+    }
+
+    public void SetEffect(ItemType itemType)
+    {
+        if (itemSetters.TryGetValue(itemType, out var setter))
+        {
+            setter(this);
+        }
+        else
+        {
+            Debug.LogWarning($"Aucun setter pour {itemType}");
+        }
     }
 }

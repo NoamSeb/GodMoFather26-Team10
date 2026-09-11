@@ -148,17 +148,9 @@ public class SnailRace : MonoBehaviour
     public void ResetStat()
     {
         // Stats
-        speed = 0;
-        humidity = 0;
-        warmness = 0;
-        weight = 0;
+        speed = humidity = warmness = weight = 0;
         
         // Effects
-        hasSnow = false;
-        hasWind = false;
-        hasMutagene = false;
-        hasRain = false;
-        hasSalt = false;
-        hasSun = false;
+        hasSnow = hasWind = hasMutagene = hasRain = hasSalt = hasSun = false;
     }
 }
