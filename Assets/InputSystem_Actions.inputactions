@@ -1113,77 +1113,11 @@
                 },
                 {
                     "name": "",
-                    "id": "b1a0c52d-2236-4340-bb3e-bfdb82caadee",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Gamepad;Keyboard&Mouse",
-                    "action": "Click",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "620283c4-84a2-481c-97ac-fd8a9b992e92",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Gamepad;Keyboard&Mouse",
-                    "action": "Click",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "d4648369-e0be-46a0-a1cf-77be76ea1ed3",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Gamepad;Keyboard&Mouse",
-                    "action": "Click",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "e095d14d-63a7-4f69-8391-54cea5d5b4a5",
                     "path": "<Keyboard>/enter",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad;Keyboard&Mouse",
-                    "action": "Click",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "d9367596-31c8-462d-9788-e4040436a8a8",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Click",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "feb6654e-c99f-424c-bf63-0d2816793fa2",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Click",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "84f35c71-7ae0-46f5-9300-becbc1f2d6e7",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
                     "action": "Click",
                     "isComposite": false,
                     "isPartOfComposite": false

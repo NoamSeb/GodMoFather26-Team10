@@ -1,16 +1,35 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using NaughtyAttributes;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class RaceManager : MonoBehaviour
 {
+
     [SerializeField] private List<Snails> snails;
     [SerializeField] private GameObject snailPrefab;
     [SerializeField] private List<Transform> snailSlots;
 
-    private List<SnailRace> snailRaces;
+    [FormerlySerializedAs("WinCanva")]
+    [Header("WinCanva")]
+    [SerializeField] private GameObject winCanva;
+    [Header("Snail info")]
+    [SerializeField] private Image snailImage;
+
+    [SerializeField] private TextMeshProUGUI snailName;
+    
+    
+
+    private List<SnailRace> snailRaces = new List<SnailRace>();
+    
     private void Start()
     {
+        winCanva.SetActive(false);
         for (int i = 0; i < snailSlots.Count; i++)
         {
             GameObject snailClone = Instantiate(snailPrefab, snailSlots[i].position, snailSlots[i].rotation);
@@ -18,6 +37,11 @@ public class RaceManager : MonoBehaviour
             snailClone.name = snails[i].Name;
             
             SnailRace snailComp = snailClone.GetComponentInChildren<SnailRace>();
+            if (snailComp == null)
+            {
+                Debug.LogError($"Aucun composant SnailRace trouvé sur le prefab pour {snails[i].Name}");
+                continue;
+            }
             snailRaces.Add(snailComp);
             if (snails[i].Sprite != null)
                 snailComp.SnailSprite = snails[i].Sprite;
@@ -54,8 +78,22 @@ public class RaceManager : MonoBehaviour
             if (snailRaces[i].HasFinished)
             {
                 Debug.Log($"{snailRaces[i]} has won the race");
+                StartCoroutine(SpawnRaces(snailRaces[i]));
                 snailRaces[i].ResetStat();
             }
         }
+    }
+
+    IEnumerator SpawnRaces(SnailRace snailRace)
+    {
+        for (int i = 0; i < snailRaces.Count; i++)
+        {
+            snailRaces[i].Speed = 0;
+        }
+        snailImage.sprite = snailRace.SnailSprite;
+        snailName.SetText(snailRace.SnailName);
+        winCanva.SetActive(true);
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene("MainMenu");
     }
 }

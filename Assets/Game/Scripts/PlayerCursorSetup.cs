@@ -101,8 +101,6 @@ public class PlayerCursorSetup : MonoBehaviour
     private void TryClickUnderCursor()
     {
         if (graphicRaycaster == null || parentCanvas == null) return;
-
-        Debug.Log("Click");
         
         pointerEventData.position = RectTransformUtility.WorldToScreenPoint(parentCanvas.worldCamera, rectTransform.position);
 
@@ -111,7 +109,6 @@ public class PlayerCursorSetup : MonoBehaviour
 
         foreach (RaycastResult result in results)
         {
-            Debug.Log("Hit: " + result.gameObject.name);
             Button button = result.gameObject.GetComponent<Button>();
             if (button != null && button.interactable)
             {
